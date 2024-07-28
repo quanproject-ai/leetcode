@@ -59,7 +59,7 @@ def remove_dupliates_two_pointers(nums: list[int]) -> int:
     ):  # start at 1 because this pointer needs to go ahead of the slow pointer
         if nums[fast] != nums[slow]:
             slow += 1
-            nums[slow] = nums[fast]
+            nums[slow] = nums[fast] #re-assiging the order of the list
     return slow + 1  # return the unique nums in the sorted array
 
 
