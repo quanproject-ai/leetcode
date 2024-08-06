@@ -81,18 +81,17 @@ def _heplper_merge_sort(left,right):
 def bubble_sort(arr):
     """
     1.Traverse the entire arrays
-    2. Use two pointers where 1 slow pointer goes from begining to the end and 1 fast pointer going from beginnig to 
-    max(array) - slow pointer's index - 1
-    comparing the value with slow pointer's value
-    3. Swap the position for smaller pointer to larger pointer
-    4. recursive
+    2. Use a pointer traverse along the array, compare the current value and the next value then swap them if
+    next value is larger than current value.
+    3. For each entire array passes, the last position will be the largest value, and the loop updates with the last
+    position with one position - number of passes less
     """
     max_index = len(arr)
-
-    for slow_pointer in range(max_index):
-        for fast_pointer in range(0,max_index-slow_pointer-1):
-            if arr[fast_pointer] > arr[fast_pointer+1]:
-                arr[fast_pointer], arr[fast_pointer+1] = arr[fast_pointer+1], arr[fast_pointer]
+    for n in range(max_index): #tracking the total time the sorting passes
+        for pointer in range(0,max_index-n-1): #update the last position. compare from begining to the latest unsorted position
+            if arr[pointer] > arr[pointer+1]:
+                arr[pointer], arr[pointer+1] = arr[pointer+1], arr[pointer]
+    print('Total passes:',n)
     return arr
 
 
