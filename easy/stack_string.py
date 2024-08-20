@@ -36,7 +36,9 @@ def isValid(self, strings_symbols):
                 correspond_bracket = symbols_dict.get(last_left_bracket)
                 if symbol != correspond_bracket:
                     return False
-            except:  # if the first bracket in string is the right bracket then return false
+            except (
+                Exception
+            ):  # if the first bracket in string is the right bracket then return false
                 return False
     # If string is corresponding then stack data structure will empty else stack will still have some elements
     return len(stack) == 0
